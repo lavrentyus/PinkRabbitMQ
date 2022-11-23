@@ -39,7 +39,7 @@
 
 #endif
 
-#define LOGING false
+#define LOGGING false
 
 
 using namespace std;
@@ -68,13 +68,13 @@ namespace Biterp {
             instance()._log(level, text);
         }
 
-        inline static void debug(const string& text) { if (LOGING) { log(Level::LDEBUG, text); } }
+        inline static void debug(const string& text) { if (LOGGING) { log(Level::LDEBUG, text); } }
 
-        inline static void info(const string& text) { if (LOGING) { log(Level::LINFO, text); } }
+        inline static void info(const string& text) { if (LOGGING) { log(Level::LINFO, text); } }
 
-        inline static void warning(const string& text) { if (LOGING) { log(Level::LWARNING, text); } }
+        inline static void warning(const string& text) { if (LOGGING) { log(Level::LWARNING, text); } }
 
-        inline static void error(const string &text) { if (LOGING) { log(Level::LERROR, text); }}
+        inline static void error(const string &text) { if (LOGGING) { log(Level::LERROR, text); }}
 
     private:
         // rotation size 2Mb
