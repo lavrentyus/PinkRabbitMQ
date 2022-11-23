@@ -39,6 +39,8 @@
 
 #endif
 
+#define LOGING false
+
 
 using namespace std;
 
@@ -58,21 +60,21 @@ namespace Biterp {
         };
 
     public:
-        inline static void init(const u16string &name, IAddInDefBase *addin) {
+        inline static void init(const u16string& name, IAddInDefBase* addin) {
             instance()._init(name, addin);
         }
 
-        inline static void log(int level, const string &text) {
+        inline static void log(int level, const string& text) {
             instance()._log(level, text);
         }
 
-        inline static void debug(const string &text) { log(Level::LDEBUG, text); }
+        inline static void debug(const string& text) { if (LOGING) { log(Level::LDEBUG, text); } }
 
-        inline static void info(const string &text) { log(Level::LINFO, text); }
+        inline static void info(const string& text) { if (LOGING) { log(Level::LINFO, text); } }
 
-        inline static void warning(const string &text) { log(Level::LWARNING, text); }
+        inline static void warning(const string& text) { if (LOGING) { log(Level::LWARNING, text); } }
 
-        inline static void error(const string &text) { log(Level::LERROR, text); }
+        inline static void error(const string &text) { if (LOGING) { log(Level::LERROR, text); }}
 
     private:
         // rotation size 2Mb

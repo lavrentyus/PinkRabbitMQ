@@ -48,8 +48,10 @@ namespace Biterp {
         * @return
         */
         virtual bool init(IAddInDefBase *addin) {
-            Biterp::Logger::init(className, addin);
-            LOGD("init");
+            if (LOGING) {
+                Biterp::Logger::init(className, addin);
+                LOGD("init");
+            };
             this->addin = addin;
             return true;
         }
